@@ -17,8 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SinglePlayerActivity" />
-        <activity android:name=".TwoPlayerActivity"></activity>
+        <activity android:name=".SinglePlayerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".TwoPlayerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

@@ -24,7 +24,7 @@
           <TextView
               android:textSize="18dp"
               android:id="@+id/gamesplayed"
-              android:text="311"
+              android:text="0"
               android:textColor="#ffffff"
               android:fontFamily="sans-serif"
               android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content" />
 
         <mehdi.sakout.fancybuttons.FancyButton
-            android:id="@+id/btn1"
+            android:id="@+id/btnSingle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -107,7 +107,7 @@
             fancy:fb_defaultColor = "#B000EE"
             fancy:fb_text = "2 Players Mode"
             fancy:fb_radius = "30dp"
-            android:id="@+id/btn2"
+            android:id="@+id/btnMulti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -120,12 +120,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
+            android:id="@+id/ivGithub"
             android:layout_alignParentLeft="true"
             android:backgroundTint="@android:color/white"
             android:background="@drawable/githubmark32px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageView
+            android:id="@+id/ivShare"
             android:layout_alignParentEnd="true"
             android:backgroundTint="@android:color/white"
             android:background="@drawable/ic_share_black_24dp"

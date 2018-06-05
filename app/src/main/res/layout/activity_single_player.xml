@@ -1,84 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:gravity="center"
-    android:backgroundTint="@drawable/frame"
-    android:layout_height="wrap_content"
-    tools:context=".MainActivity">
+<FrameLayout
+    android:id="@+id/game"
+    android:background="#212121"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TableRow
-        android:gravity="center"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
-        <Button
-            android:id="@+id/bu1"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-        <Button
-            android:id="@+id/bu2"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-        <Button
-            android:id="@+id/bu3"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-    </TableRow>
-
-    <TableRow
-        android:gravity="center"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
-        <Button
-            android:id="@+id/bu4"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-        <Button
-            android:id="@+id/bu5"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-        <Button
-            android:id="@+id/bu6"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-    </TableRow>
-
-    <TableRow
-        android:gravity="center"
-        android:layout_height="match_parent"
+    <RelativeLayout
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="14dp"
         android:layout_width="match_parent"
-        >
-        <Button
-            android:id="@+id/bu7"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-        <Button
-            android:id="@+id/bu8"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-        <Button
-            android:id="@+id/bu9"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-    </TableRow>
+        android:layout_height="wrap_content">
+        <ImageView
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/ivback"
+            android:onClick="ivbackclick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back_black_24dp"/>
+        <ImageView
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/ivrefresh"
+            android:onClick="ivrefreshclick"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_refresh_black_24dp"/>
 
-</TableLayout>
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/ivrefresh"
+            android:textSize="26sp"
+            android:textAllCaps="true"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_gravity="center"
+        android:id="@+id/frame"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</FrameLayout>
