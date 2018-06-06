@@ -15,6 +15,7 @@ class PrefManager {
     // Shared preferences file name
     private val PREF_NAME = "Pref"
     private val NO_OF_GAMES_PLAYED = "Games played"
+    private val SET_DIFFICULTY = "Difficulty"
 
     constructor(context: Context) {
         this.context = context
@@ -34,10 +35,17 @@ class PrefManager {
 
     fun setGamesPlayed(x:Int){
         editor.putInt(NO_OF_GAMES_PLAYED,x)
-        editor = pref.edit()
+       editor.commit()
     }
     fun getGamesPlayed():Int{
         return pref.getInt(NO_OF_GAMES_PLAYED,0)
+    }
+    fun setDifficulty(x:Int){
+        editor.putInt(SET_DIFFICULTY,x)
+        editor.commit()
+    }
+    fun getDifficulty():Int{
+        return pref.getInt(SET_DIFFICULTY,1)
     }
 
 

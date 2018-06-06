@@ -139,10 +139,11 @@ class SinglePlayerActivity : AppCompatActivity() {
             }
 
         }
+        var xy:hardAi = hardAi()
+        var ans:Int = xy.constructBoard(Player1,Player2)
 
-        val r = Random()
-        val randIndex = r.nextInt(emptyCells.size - 0) + 0
-        val cellId = emptyCells.get(randIndex)
+        Toast.makeText(this,ans.toString(),Toast.LENGTH_SHORT).show()
+        val cellId = emptyCells.get(Utils.Easy(emptyCells.size))
         var buSelected:ImageView?
         when(cellId){
 
@@ -204,6 +205,11 @@ class SinglePlayerActivity : AppCompatActivity() {
             winner = 2
         }
 
+        //Todo add Diagnols checking
+        //Todo add DialogBox for singleplayer for selecting who should use first move
+        //Todo add three buttons and hardAi
+        //Last Todo add animation to TicTacToe text
+
         if (winner != -1){
 
             if(winner == 1){
@@ -221,6 +227,19 @@ class SinglePlayerActivity : AppCompatActivity() {
             x = x+1
             sharedPref.setGamesPlayed(x)
         }
+        else{
+            //Its a draw
+            var emptyCells = ArrayList<Int>();
+            for (cellId in 1..9){
+                if(!(Player1.contains(cellId)|| Player2.contains(cellId))){
+                    emptyCells.add(cellId)
+                }
+            }
+            if (emptyCells.size.equals(0)){
+                tvResult?.setText("It's A Draw !")
+            }
+        }
+
     }
     private fun hideSystemUI() {
         // Set the IMMERSIVE flag.
