@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.anubhav87.tictactoelocal.R.id.*
 import kotlinx.android.synthetic.main.activity_main.*
+import mehdi.sakout.fancybuttons.Utils
 import java.util.*
 
 class SinglePlayerActivity : AppCompatActivity() {
@@ -139,11 +140,44 @@ class SinglePlayerActivity : AppCompatActivity() {
             }
 
         }
-        var xy:hardAi = hardAi()
-        var ans:Int = xy.constructBoard(Player1,Player2)
+        var cellId: Int = 1
+        // Get current selected difficulty
+        var currDiff:Int = getCurrentDiff()
+        // Use if conditon to get best move
+        if (currDiff == 0){
+            // Then its easy
+            var easy:EasyAI = EasyAI()
+            cellId = emptyCells.get(easy.Easy(emptyCells.size))
+        }
+        else if (currDiff == 1) {
+            // Then its medium diff
+            // create a linear board
+            var board = CharArray(9)
+            for (i in 0..Player1.size-1){
+                board[Player1.get(i) - 1] = 'X'
+            }
+            for (i in 0..Player2.size-1){
+                board[Player2.get(i) - 1] = 'O'
+            }
+            for(i in 0..8){
+                if(board[i] != 'X' && board[i] != 'O'){
+                    board[i] = 'a'
+                }
+            }
+            var mediumAi = MediumAi(board)
+            cellId = mediumAi.getBestMove() + 1
 
-        Toast.makeText(this,ans.toString(),Toast.LENGTH_SHORT).show()
-        val cellId = emptyCells.get(Utils.Easy(emptyCells.size))
+        }
+        else if (currDiff == 2){
+            // Then its hard diff
+                var xy:hardAi = hardAi()
+                var ans:Int = xy.constructBoard(Player1,Player2)
+                cellId = ans
+        }
+
+
+       // Toast.makeText(this,ans.toString(),Toast.LENGTH_SHORT).show()
+
         var buSelected:ImageView?
         when(cellId){
 
@@ -157,6 +191,10 @@ class SinglePlayerActivity : AppCompatActivity() {
 
 
         PlayGame(cellId,buSelected)
+    }
+    fun getCurrentDiff(): Int{
+        var curDiff:Int = sharedPref.getDifficulty()
+        return curDiff
     }
     fun checkWinner(){
         var winner = -1
@@ -204,8 +242,15 @@ class SinglePlayerActivity : AppCompatActivity() {
         if(Player2.contains(3) && Player2.contains(6) && Player2.contains(9)){
             winner = 2
         }
+        // Diagnol left
+        if(Player1.contains(1) && Player1.contains(5) && Player1.contains(9)){
+            winner = 1
+        }
+        if(Player2.contains(1) && Player2.contains(5) && Player2.contains(9)){
+            winner = 2
+        }
 
-        //Todo add Diagnols checking
+        //Todo use shared prefs for difficulty level
         //Todo add DialogBox for singleplayer for selecting who should use first move
         //Todo add three buttons and hardAi
         //Last Todo add animation to TicTacToe text
