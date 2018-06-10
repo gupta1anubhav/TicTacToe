@@ -11,17 +11,17 @@ class MediumAi {
     var winningCombos:Array<IntArray> =  arrayOf(intArrayOf(0,1,2),intArrayOf(3,4,5),intArrayOf(6,7,8),intArrayOf(0,3,6)
     ,intArrayOf(6,7,8),intArrayOf(0,3,6),intArrayOf(1,4,7),intArrayOf(2,5,8),intArrayOf(0,4,8),intArrayOf(2,4,6))
 
-     fun getBestMove():Int{
+     fun  getBestMove():Int{
 
         // use a heuristic algorithm to determine the best play
 
         //initial rank based on number of winning combos
         //that go through the cell
-        var cellRank:IntArray = intArrayOf(3,2,3,2,4,2,3,2,3)
+         var cellRank:IntArray = intArrayOf(3,2,3,2,4,2,3,2,3)
 
         //demote any cells already taken
         for(i in 0..gameBoard.size-1){
-        if(gameBoard[i].equals(0)){
+        if(gameBoard[i].equals('0')){
             cellRank[i] -= 99;
         } // end if
     } // end for
@@ -36,24 +36,24 @@ class MediumAi {
         //non-blank and the same value,
         //promote the remaining cell
         if(gameBoard[a] == gameBoard[b]){
-            if(!gameBoard[a].equals(0)){
-                if(gameBoard[c].equals(0)){
+            if(!gameBoard[a].equals('0')){
+                if(gameBoard[c].equals('0')){
                     cellRank[c] += 10;
                 } // end if
             } // end if
         } // end if
 
         if(gameBoard[a] == gameBoard[c]){
-            if(gameBoard[a].equals(0)){
-                if(gameBoard[b].equals(0)){
+            if(gameBoard[a].equals('0')){
+                if(gameBoard[b].equals('0')){
                     cellRank[b] += 10;
                 } // end if
             } // end if
         } // end if
 
         if(gameBoard[b] == gameBoard[c]){
-            if(gameBoard[b].equals(0)){
-                if(gameBoard[a].equals(0)){
+            if(gameBoard[b].equals('0')){
+                if(gameBoard[a].equals('0')){
                     cellRank[a] += 10;
                 } // end if
             } // end if

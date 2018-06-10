@@ -325,8 +325,7 @@ public class hardAi {
                 }
             }
         }
-        int ans = findBestMove(board);
-        return ans;
+        return findBestMove(board);
 
     }
 }

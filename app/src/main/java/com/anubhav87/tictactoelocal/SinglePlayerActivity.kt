@@ -1,20 +1,17 @@
 package com.anubhav87.tictactoelocal
 
-import android.content.Intent
 import android.graphics.Color
+import android.graphics.ColorSpace
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import com.anubhav87.tictactoelocal.R.id.*
-import kotlinx.android.synthetic.main.activity_main.*
-import mehdi.sakout.fancybuttons.Utils
+import mehdi.sakout.fancybuttons.FancyButton
 import java.util.*
 
 class SinglePlayerActivity : AppCompatActivity() {
@@ -25,6 +22,9 @@ class SinglePlayerActivity : AppCompatActivity() {
     var Player2 = ArrayList<Int>()
     var ActivePlayer = 1
     var tvResult:TextView? = null
+    lateinit var btneasy:FancyButton
+    lateinit var btnmedium:FancyButton
+    lateinit var btnhard:FancyButton
     lateinit var sharedPref:PrefManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,9 +32,50 @@ class SinglePlayerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_single_player)
         tvResult = findViewById(R.id.tvResult)
         sharedPref = PrefManager(this)
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        ActivePlayer = 1
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        setListeners()
+        if (getCurrentDiff().equals(0)){
+            btneasy.setTextColor(Color.parseColor("#47ADFF"))
+            btnmedium.setTextColor(Color.parseColor("#5A5A5A"))
+            btnhard.setTextColor(Color.parseColor("#5A5A5A"))
+        }
+        else if(getCurrentDiff().equals(1)){
+            btnmedium.setTextColor(Color.parseColor("#47ADFF"))
+            btnhard.setTextColor(Color.parseColor("#5A5A5A"))
+            btneasy.setTextColor(Color.parseColor("#5A5A5A"))
+        }
+        else{
+            btnhard.setTextColor(Color.parseColor("#47ADFF"))
+            btnmedium.setTextColor(Color.parseColor("#5A5A5A"))
+            btneasy.setTextColor(Color.parseColor("#5A5A5A"))
+        }
        // hideSystemUI()
         intitialsecells()
+
+    }
+    fun setListeners(){
+        btneasy = findViewById(R.id.btneasy)
+        btnmedium = findViewById(R.id.btnmedium)
+        btnhard = findViewById(R.id.btnhard)
+        btneasy.setOnClickListener{
+            sharedPref.setDifficulty(0)
+            btneasy.setTextColor(Color.parseColor("#47ADFF"))
+            btnmedium.setTextColor(Color.parseColor("#5A5A5A"))
+            btnhard.setTextColor(Color.parseColor("#5A5A5A"))
+        }
+        btnmedium.setOnClickListener{
+            sharedPref.setDifficulty(1)
+            btnmedium.setTextColor(Color.parseColor("#47ADFF"))
+            btnhard.setTextColor(Color.parseColor("#5A5A5A"))
+            btneasy.setTextColor(Color.parseColor("#5A5A5A"))
+        }
+        btnhard.setOnClickListener{
+            sharedPref.setDifficulty(2)
+            btnhard.setTextColor(Color.parseColor("#47ADFF"))
+            btnmedium.setTextColor(Color.parseColor("#5A5A5A"))
+            btneasy.setTextColor(Color.parseColor("#5A5A5A"))
+        }
 
     }
 
@@ -161,18 +202,21 @@ class SinglePlayerActivity : AppCompatActivity() {
             }
             for(i in 0..8){
                 if(board[i] != 'X' && board[i] != 'O'){
-                    board[i] = 'a'
+                    board[i] = '0'
                 }
             }
             var mediumAi = MediumAi(board)
             cellId = mediumAi.getBestMove() + 1
+            Log.d("TAG",cellId.toString())
 
         }
         else if (currDiff == 2){
             // Then its hard diff
                 var xy:hardAi = hardAi()
+
                 var ans:Int = xy.constructBoard(Player1,Player2)
                 cellId = ans
+                Log.d("Hard",cellId.toString())
         }
 
 
@@ -249,6 +293,13 @@ class SinglePlayerActivity : AppCompatActivity() {
         if(Player2.contains(1) && Player2.contains(5) && Player2.contains(9)){
             winner = 2
         }
+        // Diagnol Right
+        if(Player1.contains(3) && Player1.contains(5) && Player1.contains(7)){
+            winner = 1
+        }
+        if(Player2.contains(3) && Player2.contains(5) && Player2.contains(7)){
+            winner = 2
+        }
 
         //Todo use shared prefs for difficulty level
         //Todo add DialogBox for singleplayer for selecting who should use first move
@@ -264,6 +315,9 @@ class SinglePlayerActivity : AppCompatActivity() {
             else{
                 tvResult?.setText("Circle wins !")
                 //Toast.makeText(this,"PLayer 2 win", Toast.LENGTH_SHORT).show()
+            }
+            for (i in 0..8){
+                (this.cells.get(i)).setEnabled(false)
             }
             Player1.clear()
             Player2.clear()
@@ -285,21 +339,6 @@ class SinglePlayerActivity : AppCompatActivity() {
             }
         }
 
-    }
-    private fun hideSystemUI() {
-        // Set the IMMERSIVE flag.
-        // Set the content to appear under the system bars so that the content
-        // doesn't resize when the system bars hide and show.
-        var mDecorView = window.decorView
-        mDecorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-
-                        or View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-
-                        or View.SYSTEM_UI_FLAG_IMMERSIVE)
     }
 
     fun dpToPx(dp: Int): Float {
