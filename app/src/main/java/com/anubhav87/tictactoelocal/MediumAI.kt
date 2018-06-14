@@ -1,10 +1,15 @@
 package com.anubhav87.tictactoelocal
 
-class MediumAi {
-   lateinit var gameBoard:CharArray
+import android.content.Context
+import android.util.Log
 
-       constructor(board:CharArray){
+class MediumAI {
+   lateinit var gameBoard:CharArray
+    lateinit var context: Context
+    var cellRank:IntArray = intArrayOf(3,2,3,2,4,2,3,2,3)
+       constructor(board:CharArray,context:Context){
             this.gameBoard = board
+            this.context = context
        }
 
 
@@ -17,11 +22,11 @@ class MediumAi {
 
         //initial rank based on number of winning combos
         //that go through the cell
-         var cellRank:IntArray = intArrayOf(3,2,3,2,4,2,3,2,3)
+
 
         //demote any cells already taken
         for(i in 0..gameBoard.size-1){
-        if(gameBoard[i].equals('0')){
+        if(!(gameBoard[i].equals('0'))){
             cellRank[i] -= 99;
         } // end if
     } // end for
@@ -36,7 +41,7 @@ class MediumAi {
         //non-blank and the same value,
         //promote the remaining cell
         if(gameBoard[a] == gameBoard[b]){
-            if(!gameBoard[a].equals('0')){
+            if(!(gameBoard[a].equals('0'))){
                 if(gameBoard[c].equals('0')){
                     cellRank[c] += 10;
                 } // end if
@@ -44,7 +49,7 @@ class MediumAi {
         } // end if
 
         if(gameBoard[a] == gameBoard[c]){
-            if(gameBoard[a].equals('0')){
+            if(!(gameBoard[a].equals('0'))){
                 if(gameBoard[b].equals('0')){
                     cellRank[b] += 10;
                 } // end if
@@ -52,7 +57,7 @@ class MediumAi {
         } // end if
 
         if(gameBoard[b] == gameBoard[c]){
-            if(gameBoard[b].equals('0')){
+            if(!(gameBoard[b].equals('0'))){
                 if(gameBoard[a].equals('0')){
                     cellRank[a] += 10;
                 } // end if
@@ -71,7 +76,7 @@ class MediumAi {
             bestCell = j;
         } // end if
     } // end for
-
+        Log.d("MediumAI", cellRank.contentToString())
         return bestCell
 
     }

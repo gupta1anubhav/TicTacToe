@@ -2,6 +2,8 @@ package com.anubhav87.tictactoelocal
 
 import android.content.Context
 import android.content.SharedPreferences
+import java.util.*
+import kotlin.collections.RandomAccess
 
 class PrefManager {
     private val IS_FIRST_TIME_LAUNCH = "IS"
@@ -13,9 +15,11 @@ class PrefManager {
     internal var PRIVATE_MODE = 0
 
     // Shared preferences file name
+    private val First_Move = "First Move"
     private val PREF_NAME = "Pref"
     private val NO_OF_GAMES_PLAYED = "Games played"
     private val SET_DIFFICULTY = "Difficulty"
+    private val MUSIC = "MUSIC"
 
     constructor(context: Context) {
         this.context = context
@@ -46,6 +50,20 @@ class PrefManager {
     }
     fun getDifficulty():Int{
         return pref.getInt(SET_DIFFICULTY,1)
+    }
+    fun setFirstMove(y:Boolean){
+        editor.putBoolean(First_Move,y)
+        editor.commit()
+    }
+    fun isFirstMove():Boolean{
+        return pref.getBoolean(First_Move,true)
+    }
+    fun setMusic(y:Boolean){
+        editor.putBoolean(MUSIC,y)
+        editor.commit()
+    }
+    fun getMusic():Boolean{
+        return pref.getBoolean(MUSIC,true)
     }
 
 

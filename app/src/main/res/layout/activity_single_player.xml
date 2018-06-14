@@ -6,6 +6,7 @@
     xmlns:fancy="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
+        android:id="@+id/parentll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -19,25 +20,23 @@
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/ivback"
-            android:onClick="ivbackclick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_back_black_24dp"/>
         <ImageView
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            android:id="@+id/ivrefresh"
-            android:onClick="ivrefreshclick"
+            android:id="@+id/ivshare"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_refresh_black_24dp"/>
+            android:src="@drawable/ic_share_black_24dp"/>
 
         <TextView
             android:id="@+id/tvResult"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/ivrefresh"
-            android:textSize="26sp"
+            android:layout_below="@id/ivshare"
+            android:textSize="10sp"
             android:textAllCaps="true"
             android:text=""
             android:textColor="@android:color/white"
@@ -46,6 +45,8 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/llDiff"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_width="match_parent"
@@ -85,11 +86,42 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
     </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rlRefresh"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+     <TextView
+         android:id="@+id/tvPlayAgain"
+         android:text="Play Again"
+         android:layout_centerHorizontal="true"
+         android:textColor="#ffffff"
+         android:textSize="17sp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content" />
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btnRefresh"
+        android:layout_marginTop="9dp"
+        android:layout_below="@id/tvPlayAgain"
+        fancy:fb_text = ""
+        fancy:fb_defaultColor = "#326FFF"
+        fancy:fb_iconResource = "@drawable/ic_refresh_black_24dp"
+        fancy:fb_radiusTopLeft = "42dp"
+        fancy:fb_radiusTopRight = "42dp"
+        fancy:fb_radiusBottomLeft = "42dp"
+        fancy:fb_radiusBottomRight = "42dp"
+        fancy:fb_iconPaddingTop = "5dp"
+        fancy:fb_iconPaddingBottom = "5dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content" />
+    </RelativeLayout>
 
     <FrameLayout
         android:layout_gravity="center"
         android:id="@+id/frame"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

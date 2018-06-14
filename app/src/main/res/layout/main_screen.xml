@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--android background = ""-->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#434343"
+    android:background="#1C1C1C"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="70dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         <TextView
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textColor="#ffffff"
             android:fontFamily="sans-serif-condensed"
             android:text="GAMES PLAYED: "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
           <TextView
-              android:textSize="18dp"
+              android:textSize="18sp"
               android:id="@+id/gamesplayed"
               android:text="0"
               android:textColor="#ffffff"
@@ -36,26 +39,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <TextView
-                android:textSize="45dp"
+                android:id="@+id/tv1"
+                android:textSize="47sp"
                 android:textColor="#00FF53"
                 android:text="Tic"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+              />
             <TextView
-                android:textSize="45dp"
+                android:id="@+id/tv2"
+                android:textSize="47sp"
                 android:textColor="#FDD439"
                 android:text="Tac"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                />
             <TextView
-                android:textSize="45dp"
+                android:id="@+id/tv3"
+                android:textSize="47sp"
                 android:textColor="#FC0000"
                 android:text="Toe !"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+               />
         </LinearLayout>
         <ImageView
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/tictactoe32"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
@@ -65,11 +74,11 @@
             android:id="@+id/btnSingle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:textAllCaps = "true"
-            android:paddingBottom="3dp"
-            android:paddingTop="3dp"
-            android:paddingStart="18dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingStart="25dp"
             android:textAlignment="center"
             android:layout_gravity="center_horizontal"
             fancy:fb_textGravity = "center_horizontal"
@@ -77,7 +86,7 @@
             fancy:fb_iconResource = "@drawable/ic_play_arrow_black_24dp"
             fancy:fb_iconPosition = "right"
             fancy:fb_borderColor="#FFFFFF"
-            fancy:fb_textSize = "20sp"
+            fancy:fb_textSize = "19sp"
             fancy:fb_iconPaddingLeft = "6dp"
             fancy:fb_iconPaddingRight = "6dp"
             fancy:fb_iconPaddingTop = "6dp"
@@ -87,11 +96,11 @@
             fancy:fb_radius = "30dp"
            />
         <mehdi.sakout.fancybuttons.FancyButton
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="30dp"
             android:textAllCaps = "true"
-            android:paddingBottom="3dp"
-            android:paddingTop="3dp"
-            android:paddingStart="18dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingStart="25dp"
             android:textAlignment="center"
             android:layout_gravity="center_horizontal"
             fancy:fb_textGravity = "center_horizontal"
@@ -99,7 +108,7 @@
             fancy:fb_iconResource = "@drawable/ic_play_arrow_black_24dp"
             fancy:fb_iconPosition = "right"
             fancy:fb_borderColor="#FFFFFF"
-            fancy:fb_textSize = "20sp"
+            fancy:fb_textSize = "19sp"
             fancy:fb_iconPaddingLeft = "3dp"
             fancy:fb_iconPaddingRight = "7dp"
             fancy:fb_iconPaddingTop = "6dp"
@@ -120,17 +129,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/ivGithub"
+            android:id="@+id/ivInfo"
             android:layout_alignParentLeft="true"
             android:backgroundTint="@android:color/white"
-            android:background="@drawable/githubmark32px"
+            android:background="@drawable/ic_info_outline_black_24dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageView
-            android:id="@+id/ivShare"
+            android:id="@+id/ivSettings"
             android:layout_alignParentEnd="true"
             android:backgroundTint="@android:color/white"
-            android:background="@drawable/ic_share_black_24dp"
+            android:background="@drawable/ic_settings_black_24dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RelativeLayout>

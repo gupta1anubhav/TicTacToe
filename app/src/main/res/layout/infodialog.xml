@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:minWidth="400dp"
+    android:minHeight="300dp"
+    android:background="@drawable/layout_bg">
+    <LinearLayout
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/googleplay"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        />
+            <ImageView
+                android:layout_marginTop="9dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_cancel_black_24dp"
+                android:id="@+id/ivCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+     <TextView
+         android:layout_marginTop="15dp"
+         android:textSize="33sp"
+         android:text="Tic Tac Toe"
+         android:textColor="#ffffff"
+         android:textStyle="bold"
+         android:layout_gravity="center_horizontal"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="2dp"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:text="Version: 1.0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:paddingTop="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Libraries Used:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+     <TextView
+         android:layout_marginTop="10dp"
+         android:textSize="14sp"
+         android:textColor="#ffffff"
+         android:id="@+id/tvLibraries"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="16sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:text="Made by Anubhav Gupta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:tint="@android:color/white"
+                android:src="@drawable/githubmark32px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_marginStart="22dp"
+                android:src="@drawable/linkedin"
+                android:layout_width="34dp"
+                android:layout_height="34dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

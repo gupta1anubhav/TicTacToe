@@ -1,14 +1,15 @@
 package com.anubhav87.tictactoelocal;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
-public class hardAi {
+public class HardAI {
 
 
-    public hardAi(){
+    public HardAI(){
 
     }
 
@@ -218,6 +219,7 @@ public class hardAi {
             }
         }
 
+        Random r = new Random();
         int x = bestMove.row;
         int y = bestMove.col;
         //get CellId from position

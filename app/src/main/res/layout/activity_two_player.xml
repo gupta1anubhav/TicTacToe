@@ -1,83 +1,110 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout android:id="@+id/game"
+    android:background="#212121"
     android:layout_width="match_parent"
-    android:gravity="center"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto">
 
-    <TableRow
-        android:gravity="center"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
-        <Button
-            android:id="@+id/bu1"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-        <Button
-            android:id="@+id/bu2"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-        <Button
-            android:id="@+id/bu3"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-    </TableRow>
-
-    <TableRow
-        android:gravity="center"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
-        <Button
-            android:id="@+id/bu4"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-        <Button
-            android:id="@+id/bu5"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-        <Button
-            android:id="@+id/bu6"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-    </TableRow>
-
-    <TableRow
-        android:gravity="center"
-        android:layout_height="match_parent"
+    <LinearLayout
+        android:id="@+id/parentll"
         android:layout_width="match_parent"
-        >
-        <Button
-            android:id="@+id/bu7"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-        <Button
-            android:id="@+id/bu8"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-        <Button
-            android:id="@+id/bu9"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:onClick="buClick"
-            />
-    </TableRow>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:id="@+id/ivback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_back_black_24dp"/>
+            <ImageView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:id="@+id/ivshare"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_share_black_24dp"/>
 
-</TableLayout>
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/ivshare"
+                android:textSize="10sp"
+                android:textAllCaps="true"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/llPlayerTurn"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvPlayerTurn"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:text="Player Turn :"
+                android:textSize="26sp"/>
+            <ImageView
+                android:id="@+id/ivPlayerTurn"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/player1"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rlRefresh"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvPlayAgain"
+            android:text="Play Again"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffff"
+            android:textSize="17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnRefresh"
+            android:layout_marginTop="9dp"
+            android:layout_below="@id/tvPlayAgain"
+            fancy:fb_text = ""
+            fancy:fb_defaultColor = "#326FFF"
+            fancy:fb_iconResource = "@drawable/ic_refresh_black_24dp"
+            fancy:fb_radiusTopLeft = "42dp"
+            fancy:fb_radiusTopRight = "42dp"
+            fancy:fb_radiusBottomLeft = "42dp"
+            fancy:fb_radiusBottomRight = "42dp"
+            fancy:fb_iconPaddingTop = "5dp"
+            fancy:fb_iconPaddingBottom = "5dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_gravity="center"
+        android:id="@+id/frame"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</FrameLayout>
