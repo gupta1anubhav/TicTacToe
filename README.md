@@ -22,6 +22,8 @@ Tic Tac Toe is free classic puzzle game also known as "noughts and crosses or so
 <img style="margin-left:10px;" src="screenshots/screenshot3.png" width="19%" >
 <img style="margin-left:10px;" src="screenshots/screenshot4.png" width="19%" >
 <img style="margin-left:10px;" src="screenshots/screenshot5.png" width="19%" >
+<img style="margin-left:10px;" src="screenshots/screenshot6.png" width="19%" >
+<img style="margin-left:10px;" src="screenshots/screenshot7.png" width="19%" >
 
 ## Features
  
@@ -42,11 +44,10 @@ You can trace the status of known issues [here](https://github.com/gupta1anubhav
 also feel free to file a new issue (helpful description, screenshots and logcat are appreciated), or send me an [email](mailto:dnld.sht@gmail.com) if you have any questions.
 
 #### Licensing
-TicTacToe is licensed under the [MIT License](https://github.com/gupta1anubhav/TicTacToe/LICENSE).
+TicTacToe is licensed under the [MIT License](https://github.com/gupta1anubhav/TicTacToe/LICENSE.md).
 In addition to the terms set by the MIT License, we ask that if you use any code from this repository that you send us a message to let us know. 
 
 #### Developed By
---------------------
 
 Anubhav Gupta - <anubhav.dev97@gmail.com>
 
