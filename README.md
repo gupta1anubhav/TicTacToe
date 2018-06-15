@@ -22,8 +22,6 @@ Tic Tac Toe is free classic puzzle game also known as "noughts and crosses or so
 <img style="margin-left:10px;" src="screenshots/screenshot3.png" width="19%" >
 <img style="margin-left:10px;" src="screenshots/screenshot4.png" width="19%" >
 <img style="margin-left:10px;" src="screenshots/screenshot5.png" width="19%" >
-<img style="margin-left:10px;" src="screenshots/screenshot6.png" width="19%" >
-<img style="margin-left:10px;" src="screenshots/screenshot7.png" width="19%" >
 
 ## Features
  
