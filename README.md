@@ -35,7 +35,6 @@ Tic Tac Toe is free classic puzzle game also known as "noughts and crosses or so
 ###### Code 
 If you are a developer and you wish to contribute to the app please fork the project
 and submit a pull request on the [master branch](https://github.com/gupta1anubhav/TicTacToe/tree/master).
-If you want, you can join us on Telegram - send us a message we will add you!
 
 ###### Issues
 You can trace the status of known issues [here](https://github.com/gupta1anubhav/TicTacToe/issues),
