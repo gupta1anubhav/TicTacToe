@@ -19,9 +19,9 @@
     <ImageView
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/googleplay"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         />
             <ImageView
                 android:layout_marginTop="9dp"
@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content" />
         </RelativeLayout>
      <TextView
-         android:layout_marginTop="15dp"
+         android:layout_marginTop="10dp"
          android:textSize="33sp"
          android:text="Tic Tac Toe"
          android:textColor="#ffffff"
@@ -76,11 +76,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageView
+                android:id="@+id/ivGithub"
                 android:tint="@android:color/white"
                 android:src="@drawable/githubmark32px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <ImageView
+                android:id="@+id/ivLinkedin"
                 android:layout_marginStart="22dp"
                 android:src="@drawable/linkedin"
                 android:layout_width="34dp"

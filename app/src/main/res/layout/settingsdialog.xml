@@ -146,6 +146,7 @@
             android:layout_height="wrap_content"
             >
             <ImageView
+                android:id="@+id/ivShare"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/ic_share_black_24dp"
                 android:layout_width="24dp"
@@ -167,6 +168,7 @@
             android:layout_height="wrap_content"
             >
             <ImageView
+                android:id="@+id/ivProfile"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/googleplay"
                 android:layout_width="24dp"
@@ -187,6 +189,7 @@
             android:layout_height="wrap_content"
             >
             <ImageView
+                android:id="@+id/ivRate"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/ic_star_black_24dp"
                 android:layout_width="24dp"
