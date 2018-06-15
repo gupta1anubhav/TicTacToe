@@ -1,4 +1,4 @@
- [![Platform](https://img.shields.io/badge/Platform-Android-green.svg)]()  [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
+ [![Platform](https://img.shields.io/badge/Platform-Android-green.svg)]()    [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
 # Tic Tac Toe 
 
@@ -39,10 +39,10 @@ If you want, you can join us on Telegram - send us a message we will add you!
 
 ###### Issues
 You can trace the status of known issues [here](https://github.com/gupta1anubhav/TicTacToe/issues),
-also feel free to file a new issue (helpful description, screenshots and logcat are appreciated), or send me an [email](mailto:dnld.sht@gmail.com) if you have any questions.
+also feel free to file a new issue (helpful description, screenshots and logcat are appreciated), or send me an [email](mailto:anubhav.dev97@gmail.com) if you have any questions.
 
 #### Licensing
-TicTacToe is licensed under the [MIT License](https://github.com/gupta1anubhav/TicTacToe/LICENSE.md).
+TicTacToe is licensed under the [MIT License](https://github.com/gupta1anubhav/TicTacToe/blob/master/LICENSE.md).
 In addition to the terms set by the MIT License, we ask that if you use any code from this repository that you send us a message to let us know. 
 
 #### Developed By
