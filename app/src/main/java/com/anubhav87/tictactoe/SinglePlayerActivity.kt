@@ -3,7 +3,6 @@ package com.anubhav87.tictactoe
 import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
@@ -16,8 +15,11 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import mehdi.sakout.fancybuttons.FancyButton
 import java.util.*
+
+
 
 class SinglePlayerActivity : AppCompatActivity() {
     var screen_width : Float = 0.0f

@@ -2,7 +2,6 @@ package com.anubhav87.tictactoe
 
 import android.content.Intent
 import android.media.MediaPlayer
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
@@ -11,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import mehdi.sakout.fancybuttons.FancyButton
 import java.util.*
 

@@ -10,7 +10,6 @@ package com.anubhav87.tictactoe
 //Todo add DialogBox for singleplayer for selecting who should use first move
 //Last Todo add animation to TicTacToe text
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -18,10 +17,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import mehdi.sakout.fancybuttons.FancyButton
 import android.graphics.Typeface
+import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.MobileAds
 
 
 class MainActivity : AppCompatActivity() {
@@ -38,6 +42,7 @@ lateinit var btnMulti:FancyButton
     lateinit var l3:LinearLayout
     lateinit var l4:RelativeLayout
     lateinit var l5:ImageView
+    private var mInterstitialAd: InterstitialAd? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_screen)
@@ -68,23 +73,57 @@ lateinit var btnMulti:FancyButton
         gamesPlayed.setText(sharedPef.getGamesPlayed().toString())
 
         btnSingle.setOnClickListener{
+            mInterstitialAd?.let {
+                if (it.isLoaded) {
+                    it.show()
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.")
+                }
+            }
             sharedPef.setFirstMove(true)
             val intent = Intent(this, SinglePlayerActivity::class.java)
             startActivity(intent)
         }
         btnMulti.setOnClickListener{
+            mInterstitialAd?.let {
+                if (it.isLoaded) {
+                    it.show()
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.")
+                }
+            }
             sharedPef.setFirstMove(true)
             val intent = Intent(this,TwoPlayerActivity::class.java)
             startActivity(intent)
         }
         ivInfo.setOnClickListener{
+            mInterstitialAd?.let {
+                if (it.isLoaded) {
+                    it.show()
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.")
+                }
+            }
             val infoDialog:InfoDialog = InfoDialog(this)
             infoDialog.show()
         }
         ivSettings.setOnClickListener{
+            mInterstitialAd?.let {
+                if (it.isLoaded) {
+                    it.show()
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.")
+                }
+            }
             val settingsDialog = SettingsDialog(this)
             settingsDialog.show()
         }
+        MobileAds.initialize(this,
+                "ca-app-pub-1587436717199769~2220155849")
+        mInterstitialAd = InterstitialAd(this)
+        mInterstitialAd?.adUnitId = "ca-app-pub-1587436717199769/7348020136"
+        mInterstitialAd?.loadAd(AdRequest.Builder().build())
+
     }
 
 
